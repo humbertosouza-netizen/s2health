@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export default function Step3({ onNext, onPrevious }) {
   const features = [
@@ -41,14 +40,14 @@ export default function Step3({ onNext, onPrevious }) {
       {/* Seção principal com o garoto propaganda */}
       <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
         
-        {/* Lado esquerdo - Garoto propaganda */}
+        {/* Lado esquerdo - Player YouTube */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="relative"
         >
-          {/* Container da imagem com efeitos */}
+          {/* Container do vídeo com efeitos */}
           <div className="relative">
             {/* Efeito de fundo */}
             <motion.div 
@@ -64,33 +63,39 @@ export default function Step3({ onNext, onPrevious }) {
               }}
             />
             
-            {/* Imagem do garoto propaganda */}
+            {/* Container do player YouTube */}
             <motion.div 
               className="relative bg-white rounded-2xl p-6 shadow-xl border border-secondary/20 overflow-hidden"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <Image
-                src="/garoto-propaganda.png"
-                alt="Representante S2HEALTH"
-                width={400}
-                height={500}
-                className="w-full h-auto object-cover rounded-xl"
-                priority
-              />
+              {/* Player YouTube Responsivo */}
+              <div className="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/Udbt1QRPKwg?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0"
+                  title="S2HEALTH - Apresentação da Solução"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
               
-              {/* Overlay com quote */}
+              {/* Overlay com informações do vídeo */}
               <motion.div 
-                className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg"
+                className="mt-4 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-xl p-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
               >
-                <p className="text-text font-medium text-lg italic">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                  <p className="text-text font-medium text-sm">
+                    🎥 Conheça a S2HEALTH em 3 minutos
+                  </p>
+                </div>
+                <p className="text-text/70 text-xs mt-2">
                   "Cuidar da sua equipe nunca foi tão simples!"
-                </p>
-                <p className="text-primary text-sm font-semibold mt-2">
-                  — Equipe S2HEALTH
                 </p>
               </motion.div>
             </motion.div>
