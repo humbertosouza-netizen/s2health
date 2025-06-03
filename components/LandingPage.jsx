@@ -48,6 +48,12 @@ export default function LandingPage() {
     }
   };
 
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
   const handleChoice = (choice) => {
     setUserChoice(choice);
     // Pequeno delay para mostrar a seleção antes de avançar
@@ -66,13 +72,13 @@ export default function LandingPage() {
       case 1:
         return <Step1 onChoice={handleChoice} />;
       case 2:
-        return <Step2 choice={userChoice} onNext={nextStep} />;
+        return <Step2 choice={userChoice} onNext={nextStep} onPrevious={prevStep} />;
       case 3:
-        return <Step3 onNext={nextStep} />;
+        return <Step3 onNext={nextStep} onPrevious={prevStep} />;
       case 4:
-        return <Step4 onSubmit={handleFormSubmit} />;
+        return <Step4 onSubmit={handleFormSubmit} onPrevious={prevStep} />;
       case 5:
-        return <Step5 userChoice={userChoice} formData={formData} />;
+        return <Step5 userChoice={userChoice} formData={formData} onPrevious={prevStep} />;
       default:
         return <Step1 onChoice={handleChoice} />;
     }

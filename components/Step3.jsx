@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export default function Step3({ onNext }) {
+export default function Step3({ onNext, onPrevious }) {
   const features = [
     { icon: '📱', text: 'QR Code exclusivo' },
     { icon: '🩺', text: 'Telemedicina 24h' },
@@ -150,8 +150,18 @@ export default function Step3({ onNext }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 2 }}
-        className="text-center"
+        className="text-center space-y-4"
       >
+        {/* Botão de voltar */}
+        <motion.button
+          onClick={onPrevious}
+          className="mr-4 px-6 py-3 text-text/70 border border-text/20 rounded-xl hover:bg-card hover:border-secondary/40 transition-all duration-300 text-sm font-medium"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          ← Voltar
+        </motion.button>
+
         <button
           onClick={onNext}
           className="btn-primary text-lg px-10 py-5 relative overflow-hidden group"

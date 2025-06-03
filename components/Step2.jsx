@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export default function Step2({ choice, onNext }) {
+export default function Step2({ choice, onNext, onPrevious }) {
   const getResponseContent = () => {
     switch (choice) {
       case 1:
@@ -55,14 +55,24 @@ export default function Step2({ choice, onNext }) {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-        className="flex justify-center"
+        transition={{ duration: 0.6, delay: 2.4 }}
+        className="text-center space-y-4"
       >
+        {/* Botão de voltar */}
+        <motion.button
+          onClick={onPrevious}
+          className="mr-4 px-6 py-3 text-text/70 border border-text/20 rounded-xl hover:bg-card hover:border-secondary/40 transition-all duration-300 text-sm font-medium"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          ← Voltar
+        </motion.button>
+
         <button
           onClick={onNext}
           className="btn-primary text-lg px-8 py-4"
         >
-          Quero entender melhor o que podemos mudar
+          Entendo. Continue.
         </button>
       </motion.div>
 

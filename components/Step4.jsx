@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-export default function Step4({ onSubmit }) {
+export default function Step4({ onSubmit, onPrevious }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -230,17 +230,28 @@ export default function Step4({ onSubmit }) {
           </div>
         </div>
 
-        {/* Botão de envio */}
+        {/* Botões */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 2 }}
-          className="text-center"
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
         >
+          {/* Botão de voltar */}
+          <motion.button
+            type="button"
+            onClick={onPrevious}
+            className="px-6 py-3 text-text/70 border border-text/20 rounded-xl hover:bg-card hover:border-secondary/40 transition-all duration-300 text-sm font-medium order-2 sm:order-1"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            ← Voltar
+          </motion.button>
+
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`btn-primary text-lg px-8 py-4 ${
+            className={`btn-primary text-lg px-8 py-4 order-1 sm:order-2 ${
               isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >

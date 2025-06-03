@@ -37,7 +37,7 @@ export default function Header({ currentStep }) {
             
             {/* Container da logo com efeito */}
             <motion.div 
-              className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-secondary/10"
+              className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-3 shadow-lg border border-secondary/10"
               whileHover={{ 
                 scale: 1.05,
                 boxShadow: "0 20px 40px rgba(44, 130, 112, 0.15)"
@@ -47,9 +47,9 @@ export default function Header({ currentStep }) {
               <Image
                 src="/s2health-logo.png"
                 alt="S2HEALTH - Cuidado que conecta"
-                width={280}
-                height={84}
-                className="h-20 w-auto object-contain filter drop-shadow-sm"
+                width={210}
+                height={63}
+                className="h-14 w-auto object-contain filter drop-shadow-sm"
                 priority
               />
             </motion.div>

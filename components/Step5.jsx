@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-export default function Step5({ userChoice, formData }) {
+export default function Step5({ userChoice, formData, onPrevious }) {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
 
   // Função para gerar a mensagem do WhatsApp
@@ -176,8 +176,18 @@ Podemos conversar? 😊`;
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 2 }}
-        className="mb-16"
+        className="mb-16 space-y-4"
       >
+        {/* Botão de voltar discreto */}
+        <motion.button
+          onClick={onPrevious}
+          className="px-4 py-2 text-text/50 text-sm hover:text-text/80 transition-colors duration-300 border border-text/10 rounded-lg hover:border-text/30"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+        >
+          ← Voltar para ajustar dados
+        </motion.button>
+
         <p className="text-lg font-medium text-text italic">
           – Equipe S2HEALTH
         </p>
