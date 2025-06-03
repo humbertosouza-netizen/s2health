@@ -38,7 +38,7 @@ export default function Step3({ onNext, onPrevious }) {
       </motion.div>
 
       {/* Seção principal com o garoto propaganda */}
-      <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start mb-16">
         
         {/* Lado esquerdo - Player YouTube */}
         <motion.div
@@ -65,7 +65,7 @@ export default function Step3({ onNext, onPrevious }) {
             
             {/* Container do player YouTube */}
             <motion.div 
-              className="relative bg-white rounded-2xl p-6 shadow-xl border border-secondary/20 overflow-hidden"
+              className="relative bg-white rounded-2xl p-8 shadow-xl border border-secondary/20 overflow-hidden"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
@@ -73,7 +73,7 @@ export default function Step3({ onNext, onPrevious }) {
               <div className="relative w-full h-0 pb-[56.25%] rounded-xl overflow-hidden">
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/Udbt1QRPKwg?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0"
+                  src="https://www.youtube.com/embed/Udbt1QRPKwg?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=1&mute=1"
                   title="S2HEALTH - Apresentação da Solução"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -91,11 +91,11 @@ export default function Step3({ onNext, onPrevious }) {
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
                   <p className="text-text font-medium text-sm">
-                    🎥 Conheça a S2HEALTH em 3 minutos
+                    🎥 Vídeo iniciará automaticamente - 3 minutos
                   </p>
                 </div>
                 <p className="text-text/70 text-xs mt-2">
-                  "Cuidar da sua equipe nunca foi tão simples!"
+                  "Cuidar da sua equipe nunca foi tão simples!" • Clique no som para ativar o áudio
                 </p>
               </motion.div>
             </motion.div>
@@ -107,7 +107,7 @@ export default function Step3({ onNext, onPrevious }) {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="space-y-6"
+          className="space-y-6 lg:mt-4"
         >
           <div className="bg-white rounded-2xl shadow-lg p-8 border border-secondary/10">
             <h3 className="text-xl font-semibold text-text mb-6 text-center">
