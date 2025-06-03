@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Step3({ onNext }) {
   const features = [
@@ -10,7 +11,7 @@ export default function Step3({ onNext }) {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto py-12 md:py-20">
+    <div className="max-w-6xl mx-auto py-12 md:py-20">
       {/* História da origem */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -37,45 +38,112 @@ export default function Step3({ onNext }) {
         </motion.div>
       </motion.div>
 
-      {/* Grid de features com animação */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-12"
-      >
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
-              className="flex items-center space-x-4 p-4 rounded-xl bg-card hover:bg-secondary/20 transition-colors duration-300"
+      {/* Seção principal com o garoto propaganda */}
+      <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        
+        {/* Lado esquerdo - Garoto propaganda */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="relative"
+        >
+          {/* Container da imagem com efeitos */}
+          <div className="relative">
+            {/* Efeito de fundo */}
+            <motion.div 
+              className="absolute -inset-8 bg-gradient-to-br from-primary/10 via-secondary/15 to-primary/10 rounded-3xl blur-2xl"
+              animate={{ 
+                scale: [1, 1.05, 1],
+                rotate: [0, 1, 0]
+              }}
+              transition={{ 
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            
+            {/* Imagem do garoto propaganda */}
+            <motion.div 
+              className="relative bg-white rounded-2xl p-6 shadow-xl border border-secondary/20 overflow-hidden"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              <motion.div
-                className="text-2xl"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.4, delay: 1.4 + index * 0.1 }}
+              <Image
+                src="/garoto-propaganda.png"
+                alt="Representante S2HEALTH"
+                width={400}
+                height={500}
+                className="w-full h-auto object-cover rounded-xl"
+                priority
+              />
+              
+              {/* Overlay com quote */}
+              <motion.div 
+                className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2, duration: 0.6 }}
               >
-                {feature.icon}
+                <p className="text-text font-medium text-lg italic">
+                  "Cuidar da sua equipe nunca foi tão simples!"
+                </p>
+                <p className="text-primary text-sm font-semibold mt-2">
+                  — Equipe S2HEALTH
+                </p>
               </motion.div>
-              <div className="flex items-center">
-                <motion.div
-                  className="w-2 h-2 bg-primary rounded-full mr-3"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.3, delay: 1.5 + index * 0.1 }}
-                />
-                <span className="text-text font-medium text-sm md:text-base">
-                  {feature.text}
-                </span>
-              </div>
             </motion.div>
-          ))}
-        </div>
-      </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Lado direito - Features */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="space-y-6"
+        >
+          <div className="bg-white rounded-2xl shadow-lg p-8 border border-secondary/10">
+            <h3 className="text-xl font-semibold text-text mb-6 text-center">
+              Nossa solução completa:
+            </h3>
+            
+            <div className="space-y-4">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
+                  className="flex items-center space-x-4 p-4 rounded-xl bg-card hover:bg-secondary/20 transition-all duration-300 group"
+                >
+                  <motion.div
+                    className="text-2xl group-hover:scale-110 transition-transform duration-300"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.4, delay: 1.4 + index * 0.1 }}
+                  >
+                    {feature.icon}
+                  </motion.div>
+                  
+                  <div className="flex items-center flex-1">
+                    <motion.div
+                      className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:scale-150 transition-transform duration-300"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.3, delay: 1.5 + index * 0.1 }}
+                    />
+                    <span className="text-text font-medium text-base group-hover:text-primary transition-colors duration-300">
+                      {feature.text}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
 
       {/* Botão para continuar */}
       <motion.div
@@ -86,9 +154,13 @@ export default function Step3({ onNext }) {
       >
         <button
           onClick={onNext}
-          className="btn-primary text-lg px-8 py-4"
+          className="btn-primary text-lg px-10 py-5 relative overflow-hidden group"
         >
-          Parece algo que faria sentido aqui
+          <span className="relative z-10">Parece algo que faria sentido aqui</span>
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            initial={false}
+          />
         </button>
       </motion.div>
 

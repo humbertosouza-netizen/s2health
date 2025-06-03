@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Step5({ userChoice, formData }) {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
@@ -54,7 +55,7 @@ Podemos conversar? 😊`;
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto py-16 md:py-24 text-center">
+    <div className="max-w-4xl mx-auto py-16 md:py-24 text-center relative">
       {/* Mensagem principal de agradecimento */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -90,13 +91,29 @@ Podemos conversar? 😊`;
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 1.2 }}
-        className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16"
+        className="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-16 relative overflow-hidden"
       >
+        {/* Garoto propaganda sutil no fundo */}
+        <motion.div 
+          className="absolute top-4 right-4 w-20 h-20 rounded-full overflow-hidden opacity-10 border-2 border-primary/20"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 0.1, scale: 1 }}
+          transition={{ duration: 1, delay: 2 }}
+        >
+          <Image
+            src="/garoto-propaganda.png"
+            alt="S2HEALTH Team"
+            width={80}
+            height={80}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.6 }}
-          className="space-y-6"
+          className="space-y-6 relative z-10"
         >
           <p className="text-lg md:text-xl font-light text-text/80">
             Se quiser conversar mais a fundo, estou por aqui.
@@ -115,8 +132,24 @@ Podemos conversar? 😊`;
           transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
           className="mb-16"
         >
-          <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 mb-6">
-            <h3 className="text-white text-xl font-semibold mb-4">
+          <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 mb-6 relative overflow-hidden">
+            {/* Avatar do garoto propaganda no botão WhatsApp */}
+            <motion.div 
+              className="absolute top-4 left-4 w-12 h-12 rounded-full overflow-hidden border-2 border-white/30"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Image
+                src="/garoto-propaganda.png"
+                alt="S2HEALTH Representative"
+                width={48}
+                height={48}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+
+            <h3 className="text-white text-xl font-semibold mb-4 ml-16">
               Vamos conversar agora? 💬
             </h3>
             <p className="text-white/90 mb-6">
