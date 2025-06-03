@@ -1,0 +1,43 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ícone S2 -->
+  <g id="s2-icon">
+    <!-- Container circular com gradiente -->
+    <circle cx="30" cy="30" r="25" fill="url(#gradient1)" stroke="#8FD2B4" stroke-width="1"/>
+    
+    <!-- S2 estilizado -->
+    <text x="30" y="38" font-family="Inter, sans-serif" font-weight="700" font-size="18" fill="white" text-anchor="middle">S2</text>
+    
+    <!-- Pequeno coração sutil -->
+    <path d="M30 20 L27 17 C26 16 24 16 23 17 C22 18 22 20 23 21 L30 28 L37 21 C38 20 38 18 37 17 C36 16 34 16 33 17 L30 20 Z" fill="#8FD2B4" opacity="0.3"/>
+  </g>
+  
+  <!-- Texto HEALTH -->
+  <g id="health-text">
+    <text x="65" y="25" font-family="Inter, sans-serif" font-weight="600" font-size="24" fill="#1F3D38">HEALTH</text>
+    <text x="65" y="42" font-family="Inter, sans-serif" font-weight="300" font-size="12" fill="#2C8270">Cuidado que conecta</text>
+  </g>
+  
+  <!-- Elemento decorativo -->
+  <g id="decoration">
+    <!-- Linha sutil conectando o ícone ao texto -->
+    <line x1="55" y1="30" x2="62" y2="30" stroke="url(#gradient2)" stroke-width="2" opacity="0.4"/>
+    
+    <!-- Pequenos pontos decorativos -->
+    <circle cx="180" cy="15" r="2" fill="#8FD2B4" opacity="0.6"/>
+    <circle cx="185" cy="20" r="1.5" fill="#2C8270" opacity="0.4"/>
+    <circle cx="190" cy="25" r="1" fill="#8FD2B4" opacity="0.8"/>
+  </g>
+  
+  <!-- Gradientes -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C8270;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8FD2B4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2C8270;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#8FD2B4;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+</svg>

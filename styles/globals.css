@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', 'Poppins', system-ui, sans-serif;
+    background-color: #F8FCFB;
+    color: #1F3D38;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 ease-in-out hover:scale-105 hover:ring-4 hover:ring-primary/20 focus:outline-none focus:ring-4 focus:ring-primary/20;
+  }
+  
+  .btn-secondary {
+    @apply bg-card hover:bg-secondary/20 text-text font-medium py-3 px-6 rounded-xl border border-secondary/30 transition-all duration-300 ease-in-out hover:scale-105 hover:ring-4 hover:ring-secondary/20 focus:outline-none focus:ring-4 focus:ring-secondary/20;
+  }
+  
+  .choice-card {
+    @apply bg-card hover:bg-secondary/20 border border-secondary/30 rounded-xl p-4 cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:ring-4 hover:ring-secondary/20;
+  }
+  
+  .choice-card.selected {
+    @apply bg-secondary/30 border-primary ring-4 ring-primary/20 scale-105;
+  }
+} 
